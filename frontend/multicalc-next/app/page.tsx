@@ -1,5 +1,5 @@
 // app/page.tsx
-import UnitConverter from "./components/UnitConverter";
+import UnitConverter from "../components/UnitConverter";
 
 export default function Home() {
   return (
