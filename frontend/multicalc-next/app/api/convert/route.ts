@@ -128,9 +128,9 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ result });
-  } catch (err: any) {
-    const msg = String(err?.message || "Error");
-    const status = /tasa|cambio|api/i.test(msg) ? 502 : 500;
-    return NextResponse.json({ error: msg }, { status });
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : String(err);
+    const status = /tasa|cambio|api/i.test(message) ? 502 : 500;
+    return NextResponse.json({ error: message }, { status });
   }
 }
