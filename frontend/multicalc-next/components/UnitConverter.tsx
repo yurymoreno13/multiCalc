@@ -72,12 +72,15 @@ export default function UnitConverter() {
       const data = await res.json();
       if (!res.ok) throw new Error(data?.error || `Error ${res.status}`);
       setResult(data.result);
-    } catch (err: any) {
-      setError(err.message ?? "Error desconocido");
-    } finally {
-      setLoading(false);
-    }
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+    setError(err.message);
+  } else {
+    setError("Error desconocido");
   }
+} finally {
+  setLoading(false);
+}
 
   return (
     <div className="mx-auto w-full max-w-2xl">
