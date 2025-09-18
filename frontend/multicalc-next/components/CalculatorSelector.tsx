@@ -2,7 +2,7 @@
 "use client";
 
 import { useState } from "react";
-import UnitConverter from "./UnitConverter";
+import UnitConverter from "@/components/UnitConverter";
 
 export default function CalculatorSelector() {
   const [tab, setTab] = useState("convert");
