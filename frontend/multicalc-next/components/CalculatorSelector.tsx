@@ -1,4 +1,4 @@
-// app/components/CalculatorSelector.tsx
+// components/CalculatorSelector.tsx
 "use client";
 
 import { useState } from "react";
